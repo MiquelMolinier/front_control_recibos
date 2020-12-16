@@ -28,11 +28,13 @@ class AsignarPresupuesto extends React.Component{
             tipo_programa:[{value:"03",label:"Maestria"},{value:"05",label:"Doctorado"},{value:"06",label:"Diplomatura"}],
             tipo_actual:{value:"-1",label:"Seleccione un tipo"},
             TipopresupuestoInput:{value:"-1",label:"Seleccione un presupuesto"},
+            tipo_presupuesto:[],
             semestreInput1:{value:"-1",label:"Seleccione periodo Inicial"},
             semestreInput2:{value:"-1",label:"Seleccione periodo Final"},
             periodos:[],
             presupuestos:[],
             semestres:[],
+            presupuestoss:[],
             vacio:true,
             alumnosM:[],
             arregloAlumnos : [],
@@ -60,6 +62,27 @@ class AsignarPresupuesto extends React.Component{
         
         this.setState({
           programasBD : programa
+        })
+      })
+
+      let arreglo1=[];
+
+      fetch(CONFIG+'alumno/alumnoprograma/programa/presupuesto2/5')
+      .then((response)=>{
+        return response.json();
+      })
+      .then((presupuestoss)=>{
+        
+        this.setState({
+          presupuestoss
+        })
+        
+        Object.keys(presupuestoss).map(key=>(
+          arreglo1.push({value:key,label:presupuestoss[key].id_programa_presupuesto+" - "+presupuestoss[key].sigla_programa+" - "+presupuestoss[key].cod_plan})
+        ))
+
+        this.setState({
+          tipo_presupuesto : arreglo1, 
         })
       })
 
@@ -497,7 +520,7 @@ class AsignarPresupuesto extends React.Component{
                           id="selecpresupuesto"
                           value={this.state.TipopresupuestoInput}
                           onChange={this.handleChangeSelectTipoPrograma}
-                          options={this.state.optionsTipoPrograma}
+                          options={this.state.tipo_presupuesto}
                       />
                     </div>
               </div>
