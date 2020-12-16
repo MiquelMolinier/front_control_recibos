@@ -1,0 +1,752 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.inline {
+  display: inline;
+}
+.altura {
+  height: 100%;
+}
+
+.tfuente {
+  font-size: 15px !important;
+}
+::placeholder {
+  color: black;
+  text-align: center;
+  opacity: 1;
+}
+.opciones {
+  color: black;
+  color: black;
+}
+
+.plomo {
+  background-color: #e4e1e1;
+}
+.espacio {
+  padding-left: 40px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+.margen_top {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+.ancho {
+  width: 130px !important; /*Aquí va el ancho de la Celda*/
+}
+.espacio2 {
+  margin-top: 30px !important;
+}
+.scroll {
+  overflow: auto;
+  height: 280px;
+}
+.table {
+  border-collapse: collapse; /*juntamos los border por td y la tabla en si en uno solo*/
+  width: 100%;
+  border: 3px solid WHITE;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.tableImportes {
+  border-collapse: collapse; /*juntamos los border por td y la tabla en si en uno solo*/
+  width: 100%;
+  border: 3px solid WHITE;
+  border-radius: 5px;
+}
+.tableImporte {
+  border-collapse: collapse; /*juntamos los border por td y la tabla en si en uno solo*/
+  width: 100%;
+
+  border: 3px solid WHITE;
+  border-radius: 5px;
+
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+.tbodyImporte {
+  border-collapse: collapse; /*juntamos los border por td y la tabla en si en uno solo*/
+  width: 100%;
+  height: 200px; /*Altura definida para que aplique el scroll*/
+  display: inherit;
+
+  overflow-x: hidden; /*oculta el scroll horicontal*/
+  overflow-y: auto; /*muestra el scroll vertical*/
+}
+
+.tableScroll {
+  border-collapse: collapse; /*juntamos los border por td y la tabla en si en uno solo*/
+  width: 100%;
+  /* height: 350px;  */ /*Altura definida para que aplique el scroll*/
+  /* display: inherit; */
+
+  overflow-x: auto; /*oculta el scroll horicontal*/
+  overflow-y: auto; /*muestra el scroll vertical*/
+}
+
+.centrar {
+  text-align: center;
+  align-content: center;
+}
+
+.alcentro {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/*NUEVOO*/
+.alaizquierda {
+  display: flex;
+  justify-content: left;
+  text-align: left;
+}
+
+.verdeagua {
+  background-color: #215c75;
+  text-align: center;
+  color: #ffffff;
+}
+
+.recibo {
+  text-align: center;
+  align-content: center;
+  margin-left: 30px;
+  margin-top: 59px;
+}
+.centrarImporte {
+  align-content: center;
+}
+.th {
+  height: 10px;
+  text-align: center; /*Alineamos el texto al centro ---th por defecto e
+
+alineado al centro*/
+  /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding: 3px;
+  background-color: #215c75;
+  color: white;
+  border: 3px solid WHITE;
+  border-radius: 8px;
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+.td {
+  height: 10px;
+  text-align: center; /*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+  /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 3px solid WHITE;
+
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+.tdTable {
+  /*height: 10px;*/
+  text-align: center; /*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+  vertical-align: top; /*Alineamos el texto verticalmente hacia arriba*/
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+.trTable {
+  height: 10px;
+  text-align: center; /*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+  vertical-align: top; /*Alineamos el texto verticalmente hacia arriba*/
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 0px;
+
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+.trData {
+  /*height: 10px;*/
+  /* text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+  overflow: auto;
+  height: 300px;
+
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+.thLabel {
+  height: 10px;
+  text-align: center; /*Alineamos el texto al centro ---th por defecto e
+  
+  alineado al centro*/
+  /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding: 3px;
+  background-color: teal;
+  color: white;
+  /*border: 3px solid WHITE; /*Borde del recuadro*/
+  border-radius: 8px;
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+.th:hover {
+  background-color: black;
+  color: lightblue;
+} /*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+.tr:nth-child(even) {
+  background-color: white;
+}
+
+.colorI {
+  color: #215c75;
+}
+
+label {
+  text-align: center;
+  display: block;
+  margin: 0.5em 0;
+  color: black;
+  font-weight: bold;
+
+  font-family: "Times New Roman", Times, serif;
+  width: 90px;
+}
+.inputCosto {
+  height: 10px;
+  text-align: center; /*Alineamos el texto al centro ---th por defecto e
+  
+  alineado al centro*/
+  /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding: 3px;
+  background-color: teal;
+  color: black;
+  border: 3px solid black;
+  border-radius: 8px;
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+
+.inputImporte {
+  height: 10px;
+  text-align: center; /*Alineamos el texto al centro ---th por defecto e
+  
+  alineado al centro*/
+  /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding: 3px;
+  background-color: teal;
+  color: white;
+  border: 3px solid WHITE;
+  border-radius: 8px;
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+
+.inputDeuda {
+  height: 10px;
+  text-align: center; /*Alineamos el texto al centro ---th por defecto e
+    
+    alineado al centro*/
+  /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding: 3px;
+  background-color: teal;
+  color: white;
+  border: 3px solid WHITE;
+  border-radius: 8px;
+  /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+
+.imprimir {
+  float: right;
+  margin-right: 40px;
+}
+.importe {
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.margencomponente {
+  margin-top: 50px;
+}
+.margenFECHA {
+  margin-left: 850px;
+  margin-top: -20px;
+}
+
+/*nuevoo*/
+#mostrar-ocultar {
+  display: none;
+}
+
+/*nuevooo*/
+#tabla-beneficios {
+  display: none;
+}
+
+/*nuevo*/
+#costo-final {
+  display: none;
+}
+
+/*nuevo*/
+#alumnosP {
+  display: none;
+}
+#alumnosP2 {
+  display: none;
+}
+
+/*nuevo*/
+.dis-none {
+  display: none;
+}
+
+/*nuevo*/
+.sombreado-rojo {
+  background: red;
+}
+
+.container {
+  margin-top: 20px;
+  background: #eceaea;
+  border-radius: 15px;
+  padding: 30px;
+  width: 500px;
+}
+.sombra {
+  background: #e8e5e5;
+  margin-top: 5px;
+  border-radius: 15px;
+}
+
+textarea {
+  padding: 10px;
+  border-radius: 8px;
+}
+.Padding_bottom {
+  padding-bottom: 10px;
+}
+
+.sombra2 {
+  padding: 5px;
+  background: #e8e5e5;
+  margin-top: 5px;
+  border-radius: 15px;
+}
+
+.margenFECHA2 {
+  margin-left: 980px;
+  margin-top: -63px;
+}
+
+.margen2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.margen3 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.margen_izq {
+  margin-left: 65px;
+  margin-right: 20px;
+}
+.margen_der {
+  margin-right: 30px;
+}
+.sin_margen {
+  margin-left: 150px;
+}
+.margen {
+  padding-left: 10px;
+  padding-right: 40px;
+}
+.margenImprimirImporte {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.estilo {
+  height: 30px !important;
+}
+h3 {
+  background-color: black;
+  color: lightblue;
+  padding: 20px;
+  text-align: center;
+  font-weight: 100;
+  font-size: 28px;
+  width: 50%;
+  margin: 0 auto;
+  width: 100%;
+  font-weight: bold;
+  font-family: "Exo", sans-serif;
+}
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid lightsteelblue;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  margin: 0;
+}
+.margen_bottom {
+  padding-bottom: 80px;
+}
+.botonazul {
+  margin-top: 30px;
+}
+
+.newbotonFiltrar {
+  margin-top: -80px;
+  margin-left: 1000px;
+  margin-bottom: 30px;
+}
+
+.mostrarObsv {
+  margin-left: 130px;
+}
+
+.newbotonSeleccionar {
+  margin-top: -20px;
+}
+
+.arribaSube {
+  margin-top: -20px;
+}
+
+.botonazul2 {
+  margin-top: 10px;
+}
+
+h4 {
+  font-size: 35px;
+  color: #042431;
+}
+.material-icons {
+  font-size: 40px;
+}
+.negro {
+  color: black;
+}
+.datos {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.Alumno {
+  color: #215c75;
+}
+
+h6 {
+  font-size: 15px;
+}
+
+.center {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.SplitPane {
+  width: 100%;
+  height: 100%;
+}
+
+.SplitPane-left {
+  float: left;
+  width: 60%;
+  height: 100%;
+}
+
+.SplitPane-center {
+  float: center;
+  width: 40%;
+  height: 100%;
+}
+.SplitPane-right {
+  float: right;
+  width: 30%;
+  height: 100%;
+}
+.SplitPane-Der {
+  float: left;
+  width: 30%;
+  text-align: center;
+  height: 100%;
+}
+
+.SplitPane-Izq1 {
+  float: left;
+  width: 70%;
+  height: 100%;
+}
+.SplitPane-Der1 {
+  float: left;
+  width: 30%;
+  text-align: center;
+  height: 100%;
+}
+
+.SplitPane-Izq {
+  float: left;
+  width: 70%;
+  height: 100%;
+}
+.grupo {
+  border-radius: 0px 0px 6px 6px;
+  background-color: #f2f2f2;
+  padding: 29px;
+  width: 50%;
+  margin: 0 auto;
+  width: 420px;
+  border-radius: 15px 60px;
+}
+.vista {
+  padding: 20px 20px;
+  text-decoration: none;
+  display: block;
+  border-radius: 7px;
+}
+/*nuevo*/
+.cuadro-borde {
+  border: 1px solid #000000;
+}
+/*nuevo*/
+.margenes-cuadro {
+  margin-top: 2%;
+  margin-left: 12%;
+  margin-right: 12%;
+  margin-bottom: 2%;
+}
+/*nuevo*/
+.margenes-padding {
+  padding: 8px;
+}
+
+/*nuevo*/
+.cuadro {
+  background-color: #f2f2f2;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+/*nuevo*/
+.minicuadro {
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 20px;
+}
+
+/*nuevo*/
+.subtitulo {
+  font-size: 25px;
+  padding: 15px;
+  color: #215c75;
+  text-transform: uppercase;
+}
+
+.numero {
+  margin: 0 0 0 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.numero li {
+  position: relative;
+  cursor: pointer;
+  background-color: #eee;
+  margin: 0.5em;
+  height: 1.8em;
+  border-radius: 4px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.numero li:hover {
+  color: #607d8b;
+  background-color: #ddd;
+}
+
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+}
+button.delete {
+  position: relative;
+  float: right;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: gray;
+  color: white;
+}
+button.delete:hover {
+  background-color: rgb(168, 60, 60);
+}
+
+.azul {
+  background-color: teal;
+}
+.row {
+  margin-bottom: 0px;
+}
+.align-vertical-center {
+  display: block;
+  margin-top: 2%;
+  margin-left: 20px;
+}
+.collection-left {
+  width: 400px;
+  margin-top: 2px;
+  box-shadow: -6px 0px 0px 0px rgba(0, 0, 0, 0.75);
+}
+.content-menu {
+  display: flex;
+}
+
+/*Navbar style*/
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+/*ULTIMO: Equipo TichTecPlus*/
+.content-menu-right {
+  width: 100%;
+  padding: 2px;
+}
+.contenedor {
+  width: 100%;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  padding: 30px;
+  padding-bottom: 50px;
+  margin-bottom: 10px;
+}
+.label-dato {
+  margin-top: 25px;
+  width: 800px;
+  text-align: left;
+  font-family: "Noto Sans HK", sans-serif;
+}
+.label-dato input {
+  text-align: left;
+}
+
+.entidad-input {
+  text-align: left;
+}
+.span {
+  /*width: 150px;*/
+  width: 600px;
+  text-align: left;
+}
+span .label-dato {
+  margin-top: 0px;
+}
+.label-dato p {
+  margin-top: 10px;
+  font-weight: 100;
+}
+
+table thead tr td {
+  text-align: center;
+}
+span {
+  margin: 0px;
+  padding: 0px;
+}
+/*BUTTON DE LA VISTA LISTA */
+table tbody tr td .centrar-label {
+  display: block;
+  margin-left: 40%;
+}
+.centrar-contenido td {
+  text-align: center;
+}
+
+#main {
+  transition: margin-right 0.5s;
+}
+
+.btnVer {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  padding: 10px;
+}
+
+.btn-tm-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.table-content {
+  height: 350px;
+  overflow: auto;
+}
+
+.btn-tm {
+  font-size: 10px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.table-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-content::-webkit-scrollbar-thumb {
+  background: #ebebeb;
+  border-radius: 4px;
+}
+
+.table-content::-webkit-scrollbar-thumb:hover {
+  background: #d3d3d3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.table-content::-webkit-scrollbar-thumb:active {
+  background-color: #d3d3d3;
+}
