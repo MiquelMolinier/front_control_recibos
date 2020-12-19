@@ -78,7 +78,7 @@ class AsignarPresupuesto extends React.Component{
         })
         
         Object.keys(presupuestoss).map(key=>(
-          arreglo1.push({value:key,label:presupuestoss[key].id_programa_presupuesto+" - "+presupuestoss[key].sigla_programa+" - "+presupuestoss[key].cod_plan})
+          arreglo1.push({value:key,label:presupuestoss[key].codPlan+" - "+presupuestoss[key].idTipoPresupuesto+" - "+presupuestoss[key].nCreditos+" - "+presupuestoss[key].moneda+" - "+presupuestoss[key].costoMupg+" - "+presupuestoss[key].costoMepg+" - "+presupuestoss[key].costoCiclo+" - "+presupuestoss[key].costoCredito+" - "+presupuestoss[key].costoTotal})
         ))
 
         this.setState({
