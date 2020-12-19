@@ -65,32 +65,8 @@ class AsignarPresupuesto extends React.Component{
         })
       })
 
-      let arreglo1=[];
-      let prepObj;
-      fetch(CONFIG+'alumno/alumnoprograma/programa/presupuesto2/5')
-      .then((response)=>{
-        return response.json();
-      })
-      .then((presupuestoss)=>{
-        
-        this.setState({
-          presupuestoss
-        })
-        
-        Object.keys(presupuestoss).map(key=>{
-          prepObj={value:key,label:presupuestoss[key].codPlan+" - "+presupuestoss[key].idTipoPresupuesto+" - "+presupuestoss[key].nCreditos+" - "+presupuestoss[key].moneda+" - "+presupuestoss[key].costoMupg+" - "+presupuestoss[key].costoMepg+" - "+presupuestoss[key].costoCiclo+" - "+presupuestoss[key].costoCredito+" - "+presupuestoss[key].costoTotal};
-          if(presupuestoss[0].codPlan!==presupuestoss[key].codPlan){
-            prepObj.style={color:"DarkGray"};
-          }
-          return arreglo1.push(prepObj);
-          
-          }
-        )
-
-        this.setState({
-          tipo_presupuesto : arreglo1, 
-        })
-      })
+      
+      
 
       let arreglo=[];
 
@@ -205,6 +181,33 @@ class AsignarPresupuesto extends React.Component{
           this.setState({
             optionsTipoPrograma : [{value : programa.idPrograma,label:programa.idPrograma+" - "+programa.nomPrograma}],/**/ 
             programaSeleccionado : programa.idPrograma
+          })
+
+          let arreglo1=[];
+          let prepObj;
+          fetch(CONFIG+'alumno/alumnoprograma/programa/presupuesto2/'+this.state.programaSeleccionado)
+          .then((response)=>{
+            return response.json();
+          })
+          .then((presupuestoss)=>{
+            
+            this.setState({
+              presupuestoss
+            })
+            
+            Object.keys(presupuestoss).map(key=>{
+              prepObj={value:key,label:presupuestoss[key].codPlan+" - "+presupuestoss[key].idTipoPresupuesto+" - "+presupuestoss[key].nCreditos+" - "+presupuestoss[key].moneda+" - "+presupuestoss[key].costoMupg+" - "+presupuestoss[key].costoMepg+" - "+presupuestoss[key].costoCiclo+" - "+presupuestoss[key].costoCredito+" - "+presupuestoss[key].costoTotal};
+              if(presupuestoss[0].codPlan!==presupuestoss[key].codPlan){
+                prepObj.style={color:"DarkGray"};
+              }
+              return arreglo1.push(prepObj);
+              
+              }
+            )
+
+            this.setState({
+              tipo_presupuesto : arreglo1, 
+            })
           })
         })
         .catch(error=>{
