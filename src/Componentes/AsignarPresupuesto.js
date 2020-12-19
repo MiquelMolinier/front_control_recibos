@@ -66,7 +66,7 @@ class AsignarPresupuesto extends React.Component{
       })
 
       let arreglo1=[];
-
+      let prepObj;
       fetch(CONFIG+'alumno/alumnoprograma/programa/presupuesto2/5')
       .then((response)=>{
         return response.json();
@@ -77,9 +77,15 @@ class AsignarPresupuesto extends React.Component{
           presupuestoss
         })
         
-        Object.keys(presupuestoss).map(key=>(
-          arreglo1.push({value:key,label:presupuestoss[key].codPlan+" - "+presupuestoss[key].idTipoPresupuesto+" - "+presupuestoss[key].nCreditos+" - "+presupuestoss[key].moneda+" - "+presupuestoss[key].costoMupg+" - "+presupuestoss[key].costoMepg+" - "+presupuestoss[key].costoCiclo+" - "+presupuestoss[key].costoCredito+" - "+presupuestoss[key].costoTotal})
-        ))
+        Object.keys(presupuestoss).map(key=>{
+          prepObj={value:key,label:presupuestoss[key].codPlan+" - "+presupuestoss[key].idTipoPresupuesto+" - "+presupuestoss[key].nCreditos+" - "+presupuestoss[key].moneda+" - "+presupuestoss[key].costoMupg+" - "+presupuestoss[key].costoMepg+" - "+presupuestoss[key].costoCiclo+" - "+presupuestoss[key].costoCredito+" - "+presupuestoss[key].costoTotal};
+          if(presupuestoss[0].codPlan!==presupuestoss[key].codPlan){
+            prepObj.style={color:"DarkGray"};
+          }
+          return arreglo1.push(prepObj);
+          
+          }
+        )
 
         this.setState({
           tipo_presupuesto : arreglo1, 
@@ -491,6 +497,7 @@ class AsignarPresupuesto extends React.Component{
                 <div className="row col-xs-12">
                   <label className="col-xs-2">Tipo de Programa</label>
                   <Select className="col-xs-2" 
+                      clearable={false}
                       placeholder="Seleccione un tipo"
                       name="selectipo"
                       id="selectipo"
@@ -500,7 +507,8 @@ class AsignarPresupuesto extends React.Component{
                   />
 
                   <label className="col-xs-1">Programa</label>
-                  <Select className="col-xs-6" 
+                  <Select className="col-xs-6"
+                      clearable={false} 
                       placeholder="Seleccione una opcion"
                       name="selecprograma"
                       id="selecprograma"
@@ -514,7 +522,8 @@ class AsignarPresupuesto extends React.Component{
               <div className="row">
                     <div className="row col-xs-12">
                       <label className="col-xs-2">Presupuesto</label>
-                      <Select className="col-xs-7" 
+                      <Select className="col-xs-7"
+                          clearable={false} 
                           placeholder="Seleccione un presupuesto"
                           name="selecpresupuesto"
                           id="selecpresupuesto"
@@ -531,7 +540,8 @@ class AsignarPresupuesto extends React.Component{
 
                 <div className="row col-xs-12">
                   <label className="col-xs-2">Periodo Academico</label>
-                  <Select className="col-xs-2" 
+                  <Select className="col-xs-2"
+                        clearable={false} 
                         placeholder="Periodo Inicial"
                         name="primerperiodo"
                         id="primerperiodo"
@@ -541,6 +551,7 @@ class AsignarPresupuesto extends React.Component{
                         disabled = {this.state.vacio}
                     />
                   <Select className="col-xs-2" 
+                      clearable={false}
                       placeholder="Periodo Final"
                       name="segundoperiodo"
                       id="segundoperiodo"
