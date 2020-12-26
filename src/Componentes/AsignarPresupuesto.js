@@ -29,6 +29,7 @@ class AsignarPresupuesto extends React.Component{
             tipo_actual:{value:"-1",label:"Seleccione un tipo"},
             TipopresupuestoInput:{value:"-1",label:"Seleccione un presupuesto"},
             tipo_presupuesto:[],
+            programa_presupuesto:[],
             semestreInput1:{value:"-1",label:"Seleccione periodo Inicial"},
             semestreInput2:{value:"-1",label:"Seleccione periodo Final"},
             periodos:[],
@@ -206,7 +207,7 @@ class AsignarPresupuesto extends React.Component{
             )
 
             this.setState({
-              tipo_presupuesto : arreglo1, 
+              tipo_presupuesto : arreglo1,
             })
           })
         })
@@ -219,6 +220,10 @@ class AsignarPresupuesto extends React.Component{
       this.setState({
         TipopresupuestoInput:{value: estado.value,label: estado.label},
         vacio:false
+      });
+      console.log("id_programa_presupuesto="+this.state.presupuestoss[estado.value].idProgramaPresupuesto)
+      this.setState({
+        id_programa_presupuesto:this.state.presupuestoss[estado.value].idProgramaPresupuesto,
       });
     }
 
