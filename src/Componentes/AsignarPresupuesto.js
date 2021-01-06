@@ -163,12 +163,14 @@ class AsignarPresupuesto extends React.Component{
 
     mostrarAlumnosP=()=>{
         document.getElementById('presupuesto').style.display='none';
+        document.getElementById('detalle__presupuesto').style.display='none';
         document.getElementById('alumnosP').style.display = 'block';
         document.getElementById('alumnosP2').style.display = 'block';
     }
 
     mostrarPresupuesto=()=>{    
         document.getElementById('presupuesto').style.display='block';
+        document.getElementById('detalle__presupuesto').style.display='block';
         document.getElementById('alumnosP').style.display = 'none';  
         document.getElementById('alumnosP2').style.display = 'none';
     }
@@ -225,6 +227,9 @@ class AsignarPresupuesto extends React.Component{
       this.setState({
         id_programa_presupuesto:this.state.presupuestoss[estado.value].idProgramaPresupuesto,
       });
+      this.setState({
+        detallePresupuesto : { upg: this.state.presupuestoss[estado.value].costoMupg, epg:this.state.presupuestoss[estado.value].costoMepg, derecho:(this.state.presupuestoss[estado.value].costoCredito*this.state.presupuestoss[estado.value].nCreditos), total:this.state.presupuestoss[estado.value].costoTotal, valor1:this.state.presupuestoss[estado.value].nCreditos, valor2:this.state.presupuestoss[estado.value].costoCredito}
+      });
     }
 
     handleChangeSelectSemestre1=(estado)=>{
@@ -265,9 +270,10 @@ class AsignarPresupuesto extends React.Component{
           alumnosM : resultado
         })
 
-        console.log(this.state.arregloAlumnos)
+        console.log(this.state.alumnosM)
       
       })
+      
       fetch(CONFIG+'/programa_presupuesto/listartodo/'+this.state.id_programa_presupuesto)
       .then((response)=>{
         return response.json();
@@ -583,6 +589,27 @@ class AsignarPresupuesto extends React.Component{
                 
 
               <div className="margenes-cuadro" >
+                <div id="detalle__presupuesto">
+                    <div className="alcentro ">
+                      <div className="col-xs-12 row">
+                        <div className="verdeagua cuadro-borde col-xs-2"><b>MATRICULA UPG</b></div>
+                        <div className="verdeagua cuadro-borde col-xs-2"><b>MATRICULA EPG</b></div>
+                        <div className="verdeagua cuadro-borde col-xs-3"><b>DERECHO DE ENSEÑANZA</b></div>
+                        <div className="verdeagua cuadro-borde col-xs-2"><b>TOTAL</b></div>
+                        <div className="verdeagua cuadro-borde col-xs-2"><b>VALOR POR CREDITO</b></div>
+                      </div> 
+                    </div>
+                    <div className="alcentro ">
+                      <div className="col-xs-12 row">
+                        <div className="cuadro-borde col-xs-2">S/ {this.state.detallePresupuesto.upg}</div>
+                        <div className="cuadro-borde col-xs-2">S/ {this.state.detallePresupuesto.epg}</div>
+                        <div className="cuadro-borde col-xs-3">S/ {this.state.detallePresupuesto.derecho}</div>
+                        <div className="cuadro-borde col-xs-2">S/ {this.state.detallePresupuesto.total}</div>
+                        <div className="cuadro-borde col-xs-2">{this.state.detallePresupuesto.valor1} x {this.state.detallePresupuesto.valor2}</div> 
+                      </div>             
+                    </div>
+                    <p></p>
+                </div>
                 <div id="presupuesto">
                   <div className="alcentro ">
                     <div className="col-xs-12 row">
@@ -596,8 +623,9 @@ class AsignarPresupuesto extends React.Component{
                   </div>
                   
                   {this.recorrerpresupuesto()}
-                  <h5 className="mt-3">Total de alumnos a los que aplica el presupuesto: {this.state.alumnosM.length}</h5>
+                  <h5 className="mt-3">Total de alumnos: {this.state.alumnosM.length}</h5>
                 </div>
+                
 
                 <div id="alumnosP">
                   <div className="alcentro ">
