@@ -547,7 +547,7 @@ class AsignarPresupuesto extends React.Component{
               <div className="row">
 
                 <div className="row col-xs-12">
-                  <label className="col-xs-2">Periodo Academico</label>
+                  <label className="col-xs-2">Periodo de Ingreso</label>
                   <Select className="col-xs-2"
                         clearable={false} 
                         placeholder="Periodo Inicial"
