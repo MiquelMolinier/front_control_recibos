@@ -46,7 +46,8 @@ class AsignarPresupuesto extends React.Component{
             arregloProgramaOriginal : [],
             detallePresupuesto : { upg: 0,epg:0,derecho:0,total:0,valor1:0,valor2:0},
             id_programa_presupuesto: 5,
-            etiqueta_presupuesto: "None"
+            etiqueta_presupuesto: "None",
+            sigla_programa: "None"
         }
 
         this.Regresar=this.Regresar.bind(this);
@@ -274,7 +275,40 @@ class AsignarPresupuesto extends React.Component{
         console.log(this.state.alumnosM)
       
       })
-      
+      switch(this.state.programaSeleccionado){
+        case 1 : this.setState({
+                    sigla_programa : "GPGE"
+                  });
+                  break;
+        case 2 : this.setState({
+                    sigla_programa : "ASTI"
+                  });
+                  break;
+        case 3 : this.setState({
+                    sigla_programa : "GPTI"
+                  });
+                  break;
+        case 4 : this.setState({
+                    sigla_programa : "ISW"
+                  });
+                  break;
+        case 5 : this.setState({
+                    sigla_programa : "GTIC"
+                  });
+                  break;
+        case 6 : this.setState({
+                    sigla_programa : "GTI"
+                  });
+                  break;
+        case 7 : this.setState({
+                    sigla_programa : "GIC"
+                  });
+                  break;
+        case 8 : this.setState({
+                    sigla_programa: "DISI"
+                  });
+                  break;        
+      }
       fetch(CONFIG+'/programa_presupuesto/listartodo/'+this.state.id_programa_presupuesto)
       .then((response)=>{
         return response.json();
@@ -479,10 +513,11 @@ class AsignarPresupuesto extends React.Component{
                       <div className="alcentro " key={key}>
                         <div className="col-xs-12 row" >
                           <div className="cuadro-borde col-xs-1  " id={"fila-"+key}><div className="margenes-padding">{indice++}</div></div>
-                          <div className="cuadro-borde col-xs-1  " id={"fila2-"+key}><div className="margenes-padding">{this.state.alumnosM[key].semestre}</div></div>
-                          <div className="cuadro-borde col-xs-2  " id={"fila3-"+key}><div className="margenes-padding">{this.state.alumnosM[key].codigo}</div></div>
-                          <div className="cuadro-borde col-xs-3  " id={"fila4-"+key}><div className="margenes-padding">{this.state.alumnosM[key].nombre}</div></div>
-                          <div className="cuadro-borde col-xs-3  " id={"fila5-"+key}><div className="margenes-padding">{this.formato_presupuesto_actual(this.state.alumnosM[key].presupuesto)}</div></div>
+                          <div className="cuadro-borde col-xs-1  " id={"fila2-"+key}><div className="margenes-padding">{this.state.sigla_programa}</div></div>
+                          <div className="cuadro-borde col-xs-1  " id={"fila3-"+key}><div className="margenes-padding">{this.state.alumnosM[key].semestre}</div></div>
+                          <div className="cuadro-borde col-xs-2  " id={"fila4-"+key}><div className="margenes-padding">{this.state.alumnosM[key].codigo}</div></div>
+                          <div className="cuadro-borde col-xs-3  " id={"fila5-"+key}><div className="margenes-padding">{this.state.alumnosM[key].nombre}</div></div>
+                          <div className="cuadro-borde col-xs-3  " id={"fila6-"+key}><div className="margenes-padding">{this.formato_presupuesto_actual(this.state.alumnosM[key].presupuesto)}</div></div>
                           <div className="cuadro-borde col-xs-1 ">
 
                           <form action="#">
@@ -648,6 +683,7 @@ class AsignarPresupuesto extends React.Component{
                   <div className="alcentro ">
                       <div className="col-xs-12 row">
                         <div className="verdeagua cuadro-borde col-xs-1 "><b>N°</b></div>
+                        <div className="verdeagua cuadro-borde col-xs-1 "><b>SIGLA DEL PROGRAMA</b></div>
                         <div className="verdeagua cuadro-borde col-xs-1 "><b>PERIODO DE INGRESO</b></div>
                         <div className="verdeagua cuadro-borde col-xs-2 "><b>CODIGO ALUMNO</b></div>
                         <div className="verdeagua cuadro-borde col-xs-3 "><b>NOMBRE DEL ALUMNO</b></div>
