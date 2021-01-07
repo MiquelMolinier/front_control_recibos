@@ -718,7 +718,7 @@ class AsignarPresupuesto extends React.Component{
                   </div>
                   
                   {this.recorrerpresupuesto()}
-                  <h5 className="mt-3">Total de alumnos: {this.state.alumnosM.length}</h5>
+                  {/* <h5 className="mt-3">Total de alumnos: {this.state.alumnosM.length}</h5> */}
                 </div>
                 
 
