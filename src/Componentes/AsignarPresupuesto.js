@@ -47,7 +47,8 @@ class AsignarPresupuesto extends React.Component{
             detallePresupuesto : { upg: 0,epg:0,derecho:0,total:0,valor1:0,valor2:0},
             id_programa_presupuesto: 5,
             etiqueta_presupuesto: "None",
-            sigla_programa: "None"
+            sigla_programa: "None",
+            alumnos_format: []
         }
 
         this.Regresar=this.Regresar.bind(this);
@@ -261,7 +262,53 @@ class AsignarPresupuesto extends React.Component{
         optionsSemestrePrimer : arreglo
       })
     }
-
+    function_order(x,y){
+      if (x.semestre > y.semestre){
+        return 1;
+      }
+      else if (x.semestre < y.semestre){
+        return -1;
+      }
+      else{
+        if (x.ape_pat > y.ape_pat){
+          return 1;
+        }
+        else if (x.ape_pat < y.ape_pat){
+          return -1;
+        }
+        else{
+          if (x.ape_mat > y.ape_mat){
+            return 1;
+          }
+          else if (x.ape_mat < y.ape_mat){
+            return -1;
+          }
+          else{
+            if (x.nom_alum > y.nom_alum){
+              return 1;
+            }
+            else if (x.nom_alum < y.nom_alum){
+              return -1;
+            }
+            else{
+              return 0
+            }
+          }
+        }
+      }
+    }
+    formato_alumnos(resultado){
+      var n = resultado.length;
+      var ret = []
+      for (var i=0;i<n;i++){
+        var temp = resultado[i].nombre.split("|")
+        resultado[i].ape_pat = temp[0]
+        resultado[i].ape_mat = temp[1]
+        resultado[i].nom_alum = temp[2]
+      }
+      resultado.sort(this.function_order);
+      return resultado
+    }
     seleccionar=()=>{
       fetch(CONFIG+'alumno/alumnoprograma/programa/alumnosemestres/'+this.state.programaSeleccionado+"/"+this.state.semestreInput1.label+"/"+this.state.semestreInput2.label)
       .then((response)=>{
@@ -269,7 +316,7 @@ class AsignarPresupuesto extends React.Component{
       })
       .then((resultado)=>{
         this.setState({
-          alumnosM : resultado
+          alumnosM : this.formato_alumnos(resultado)
         })
 
         console.log(this.state.alumnosM)
@@ -490,10 +537,6 @@ class AsignarPresupuesto extends React.Component{
                     </div>    
                     ))     
     }
-    formato_cod_plan(number){
-      var n = this.state.presupuestoss.length;
-      var string_ret = "";
-    }
     formato_presupuesto_actual(number){
       var n = this.state.presupuestoss.length;
       var string_ret = "0"
@@ -516,7 +559,7 @@ class AsignarPresupuesto extends React.Component{
                           <div className="cuadro-borde col-xs-1  " id={"fila2-"+key}><div className="margenes-padding">{this.state.sigla_programa}</div></div>
                           <div className="cuadro-borde col-xs-1  " id={"fila3-"+key}><div className="margenes-padding">{this.state.alumnosM[key].semestre}</div></div>
                           <div className="cuadro-borde col-xs-2  " id={"fila4-"+key}><div className="margenes-padding">{this.state.alumnosM[key].codigo}</div></div>
-                          <div className="cuadro-borde col-xs-3  " id={"fila5-"+key}><div className="margenes-padding">{this.state.alumnosM[key].nombre}</div></div>
+                          <div className="cuadro-borde col-xs-3  " id={"fila5-"+key}><div className="margenes-padding">{this.state.alumnosM[key].nombre.replace(/\|/g," ")}</div></div>
                           <div className="cuadro-borde col-xs-3  " id={"fila6-"+key}><div className="margenes-padding">{this.formato_presupuesto_actual(this.state.alumnosM[key].presupuesto)}</div></div>
                           <div className="cuadro-borde col-xs-1 ">
 
