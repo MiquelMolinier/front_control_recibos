@@ -57,7 +57,9 @@ class AsignarPresupuesto extends React.Component{
     }
 	function_formateo_ciclo(x){
 		var y = x.split("-");
-		if (y[1]=="II")
+		if (y[1]=="1" || y[1]=="2")
+			{return x;}
+		else if (y[1]=="II")
 			{return y[0]+"-"+"2";}
 		else
 			{return y[0]+"-"+"1";}
@@ -94,8 +96,8 @@ class AsignarPresupuesto extends React.Component{
 		console.log(this.state.semestres)
         this.setState({
 		  semestres: arreglo,
-		  optionsSemestrePrimer : arreglo, 
-          optionsSemestreSegundo :arreglo
+		  optionsSemestrePrimer: arreglo, 
+          optionsSemestreSegundo: arreglo
         })
       })
    
@@ -245,7 +247,7 @@ class AsignarPresupuesto extends React.Component{
       let arreglo=[]
       Object.keys(this.state.semestres).map(key=>(
         (Number(key)>=Number(estado.value)) ?
-        (arreglo.push({value:key,label:this.state.semestres[key].semestre})) :
+        (arreglo.push({value:key,label:this.state.semestres[key].label})) :
         null
       ))
 
@@ -259,7 +261,7 @@ class AsignarPresupuesto extends React.Component{
       let arreglo=[]
       Object.keys(this.state.semestres).map(key=>(
         (Number(key)<=Number(estado.value)) ?
-        (arreglo.push({value:key,label:this.state.semestres[key].semestre})) :
+        (arreglo.push({value:key,label:this.state.semestres[key].label})) :
         null
       ))
 
