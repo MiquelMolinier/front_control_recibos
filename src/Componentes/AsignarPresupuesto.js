@@ -82,7 +82,7 @@ class AsignarPresupuesto extends React.Component{
         this.setState({
           semestres 
         })
-
+		console.log(semestres)
         Object.keys(semestres).map(key=>(
           arreglo.push({value:key,label:semestres[key].semestre})
         ))
