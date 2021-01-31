@@ -91,7 +91,7 @@ class AsignarPresupuesto extends React.Component{
         Object.keys(semestres).map(key=>(
           arreglo.push({value:key,label:this.function_formateo_ciclo(semestres[key].semestre)})
         ))
-
+		console.log(this.state.semestres)
         this.setState({
 		  semestres: arreglo,
 		  optionsSemestrePrimer : arreglo, 
