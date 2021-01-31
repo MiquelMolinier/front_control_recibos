@@ -55,7 +55,7 @@ class AsignarPresupuesto extends React.Component{
        // this.handleChangeSelectPrograma=this.bind(this);
         this.alumno = '';
     }
-	function formateo_ciclo(x){
+	function_formateo_ciclo(x){
 		var y = x.split("-");
 		if (y[1]=="II")
 			{return y[0]+"-"+"2";}
@@ -89,7 +89,7 @@ class AsignarPresupuesto extends React.Component{
           semestres 
         })
         Object.keys(semestres).map(key=>(
-          arreglo.push({value:key,label:this.formateo_ciclo(semestres[key].semestre)})
+          arreglo.push({value:key,label:this.function_formateo_ciclo(semestres[key].semestre)})
         ))
 
         this.setState({
