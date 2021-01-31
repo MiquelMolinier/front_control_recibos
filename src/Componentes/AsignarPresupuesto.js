@@ -93,7 +93,8 @@ class AsignarPresupuesto extends React.Component{
         ))
 
         this.setState({
-          optionsSemestrePrimer : arreglo, 
+		  semestres: arreglo,
+		  optionsSemestrePrimer : arreglo, 
           optionsSemestreSegundo :arreglo
         })
       })
@@ -249,7 +250,7 @@ class AsignarPresupuesto extends React.Component{
       ))
 
       this.setState({
-        semestreInput1 : {value: estado.value,label: this.function_formateo_ciclo(estado.label)},
+        semestreInput1 : {value: estado.value,label: estado.label},
         optionsSemestreSegundo : arreglo
       })
     }
@@ -263,7 +264,7 @@ class AsignarPresupuesto extends React.Component{
       ))
 
       this.setState({
-        semestreInput2 : {value: estado.value,label: this.function_formateo_ciclo(estado.label)},
+        semestreInput2 : {value: estado.value,label: estado.label},
         optionsSemestrePrimer : arreglo
       })
     }
