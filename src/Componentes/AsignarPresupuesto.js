@@ -52,7 +52,6 @@ class AsignarPresupuesto extends React.Component{
         }
 
         this.Regresar=this.Regresar.bind(this);
-       // this.handleChangeSelectPrograma=this.bind(this);
         this.alumno = '';
     }
 	function_formateo_ciclo(x){
